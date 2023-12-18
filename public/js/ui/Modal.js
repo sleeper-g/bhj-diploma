@@ -12,8 +12,13 @@ class Modal {
    * необходимо выкинуть ошибку.
    * */
   constructor(element){
+    if (!element){
+      throw new Error('передан пустой элемент в конструктор(Modal)');
+    };
 
-  }
+    this.element = element;
+    this.registerEvents();
+  };
 
   /**
    * При нажатии на элемент с data-dismiss="modal"
@@ -21,27 +26,34 @@ class Modal {
    * (с помощью метода Modal.onClose)
    * */
   registerEvents() {
+    const btns = [...document.querySelectorAll(`[data-dismiss='modal']`)];
+    btns.forEach( btnEl => {
+      btnEl.addEventListener( 'click', (doEl) => {
+        doEl.preventDefault();
+        this.onClose(doEl);
+      });
+    });
 
-  }
+  };
 
   /**
    * Срабатывает после нажатия на элементы, закрывающие окно.
    * Закрывает текущее окно (Modal.close())
    * */
   onClose(e) {
-
-  }
+    this.close();
+  };
   /**
    * Открывает окно: устанавливает CSS-свойство display
    * со значением «block»
    * */
   open() {
-
-  }
+    this.element.style.display = "block";
+  };
   /**
    * Закрывает окно: удаляет CSS-свойство display
    * */
   close(){
-
-  }
+    this.element.style.display = ''
+  };
 }

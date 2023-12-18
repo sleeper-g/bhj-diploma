@@ -3,14 +3,20 @@
  * Имеет свойство URL, равно пустой строке.
  * */
 class Entity {
+  static URL = '';
   /**
    * Запрашивает с сервера список данных.
    * Это могут быть счета или доходы/расходы
-   * (в зависимости от того, что наследуется от Entity)
+   * (в зависимости от того, что наследует ся от Entity)
    * */
   static list(data, callback){
-
-  }
+    createRequest({
+      url: this.URL,
+      method: 'GET',
+      data: data,
+      callback: callback
+    });
+  };
 
   /**
    * Создаёт счёт или доход/расход с помощью запроса
@@ -18,14 +24,28 @@ class Entity {
    * что наследуется от Entity)
    * */
   static create(data, callback) {
-
-  }
+    createRequest({
+      url: this.URL,
+      method: 'PUT',
+      data: data,
+      callback: callback
+    });
+  };
 
   /**
    * Удаляет информацию о счёте или доходе/расходе
    * (в зависимости от того, что наследуется от Entity)
    * */
-  static remove(data, callback ) {
-
-  }
-}
+  static remove(data, callback) {
+    createRequest({
+      url: this.URL,
+      method: 'DELETE',
+      data: data,
+      callback: callback
+    });
+  };
+  
+  URL(){
+    confole.log( Entity.URL)
+  };
+};

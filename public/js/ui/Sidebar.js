@@ -10,7 +10,7 @@ class Sidebar {
   static init() {
     this.initAuthLinks();
     this.initToggleButton();
-  }
+  };
 
   /**
    * Отвечает за скрытие/показа боковой колонки:
@@ -18,8 +18,14 @@ class Sidebar {
    * при нажатии на кнопку .sidebar-toggle
    * */
   static initToggleButton() {
+    this.button = document.querySelector('.sidebar-toggle');
+    this.button.addEventListener('click', (e) => {
+      e.preventDefault();
+      document.body.classList.toggle('sidebar-collapse');
+      document.body.classList.toggle('sidebar-open');
+    });
 
-  }
+  };
 
   /**
    * При нажатии на кнопку входа, показывает окно входа
@@ -29,6 +35,29 @@ class Sidebar {
    * выходу устанавливает App.setState( 'init' )
    * */
   static initAuthLinks() {
+    const registerBtn = document.querySelector('.menu-item_register');
+    const loginBtn = document.querySelector('.menu-item_login');
+    const logoutBtn = document.querySelector('.menu-item_logout');
 
-  }
-}
+    registerBtn.addEventListener('click', (buttonEl) => {
+      buttonEl.preventDefault();
+      App.getModal('register').open();
+    });
+
+    loginBtn.addEventListener('click', (buttonEl) => {
+      buttonEl.preventDefault();
+      App.getModal('login').open();
+    });
+
+    logoutBtn.addEventListener('click', (buttonEl) => {
+      buttonEl.preventDefault();
+      User.logout( (err, response) => {
+        if (response && response.success){
+          App.setState('init');
+        };
+      });
+    });
+
+
+  };
+};
