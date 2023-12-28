@@ -11,6 +11,42 @@
       "email": "qwe@gmail.com",
       "password": "qwe",
       "id": "3ptdeqr13sblqaxhlc5"
+    },
+    {
+      "name": "username",
+      "email": "username@mail",
+      "password": "123",
+      "id": "3ptdeqreralqjycw96"
+    },
+    {
+      "name": "user",
+      "email": "user@user",
+      "password": "user",
+      "id": "3ptdeqrnzrlqp1muxg"
+    },
+    {
+      "name": "user",
+      "email": "user@mail.com",
+      "password": "user",
+      "id": "3ptdeqrqsllqpa0jyn"
+    },
+    {
+      "name": "qwe",
+      "email": "user1@mail.com",
+      "password": "user1",
+      "id": "3ptdeqrsk8lqpa8vh2"
+    },
+    {
+      "name": "person",
+      "email": "person@mail.com",
+      "password": "person",
+      "id": "3ptdeqrviilqpdszj1"
+    },
+    {
+      "name": "user1",
+      "email": "user1@user1",
+      "password": "user1",
+      "id": "3ptdeqrw2elqpepnob"
     }
   ],
   "accounts": [
@@ -28,6 +64,61 @@
       "name": "Бизнес",
       "user_id": "1",
       "id": "3"
+    },
+    {
+      "name": "qwe",
+      "user_id": "3ptdeqreralqjycw96",
+      "id": "3ptdeqrf16lqjyjie2"
+    },
+    {
+      "name": "1",
+      "user_id": "3ptdeqreralqjycw96",
+      "id": "3ptdeqrf73lqjymuws"
+    },
+    {
+      "name": "123",
+      "user_id": "3ptdeqreralqjycw96",
+      "id": "3ptdeqrfaolqjyq4x8"
+    },
+    {
+      "name": "qweasdfas",
+      "user_id": "3ptdeqreralqjycw96",
+      "id": "3ptdeqrfbnlqjyq9wx"
+    },
+    {
+      "name": "qwe1",
+      "user_id": "3ptdeqreralqjycw96",
+      "id": "3ptdeqrfdhlqjyri23"
+    },
+    {
+      "name": "qwe11",
+      "user_id": "3ptdeqreralqjycw96",
+      "id": "3ptdeqrfg2lqjytn60"
+    },
+    {
+      "name": "qewq",
+      "user_id": "3ptdeqreralqjycw96",
+      "id": "3ptdeqrfi0lqjyvbno"
+    },
+    {
+      "name": "ads",
+      "user_id": "3ptdeqreralqjycw96",
+      "id": "3ptdeqrfjolqjywm1n"
+    },
+    {
+      "name": "Balabola",
+      "user_id": "3ptdeqrnzrlqp1muxg",
+      "id": "3ptdeqro1clqp1n19q"
+    },
+    {
+      "name": "poket",
+      "user_id": "3ptdeqrqsllqpa0jyn",
+      "id": "3ptdeqrrr6lqpa0xcb"
+    },
+    {
+      "name": "poket",
+      "user_id": "3ptdeqrsk8lqpa8vh2",
+      "id": "3ptdeqrsz2lqpaq00k"
     }
   ],
   "transactions": [
@@ -165,6 +256,213 @@
       "sum": 300000,
       "type": "expense",
       "user_id": "1"
+    },
+    {
+      "id": "3ptdeqrg7mlqjztpg0",
+      "type": "income",
+      "name": "abs",
+      "sum": 1000,
+      "account_id": "3ptdeqrfjolqjywm1n",
+      "user_id": "3ptdeqreralqjycw96",
+      "created_at": "2023-12-24T21:20:16.655Z"
+    },
+    {
+      "id": "3ptdeqrgrvlqk0bgye",
+      "type": "income",
+      "name": "a",
+      "sum": 1,
+      "account_id": "3ptdeqrf16lqjyjie2",
+      "user_id": "3ptdeqreralqjycw96",
+      "created_at": "2023-12-24T21:34:05.461Z"
+    },
+    {
+      "id": "3ptdeqrh3rlqk0bwpn",
+      "type": "income",
+      "name": "name",
+      "sum": 1000,
+      "account_id": "3ptdeqrf16lqjyjie2",
+      "user_id": "3ptdeqreralqjycw96",
+      "created_at": "2023-12-24T21:34:25.882Z"
+    },
+    {
+      "id": "3ptdeqrh5zlqk0io9f",
+      "type": "income",
+      "name": "A",
+      "sum": 1000,
+      "account_id": "3ptdeqrfjolqjywm1n",
+      "user_id": "3ptdeqreralqjycw96",
+      "created_at": "2023-12-24T21:39:41.522Z"
+    },
+    {
+      "id": "3ptdeqrlhplqoypf8z",
+      "type": "income",
+      "name": "A",
+      "sum": 100,
+      "account_id": "3ptdeqrf73lqjymuws",
+      "user_id": "3ptdeqreralqjycw96",
+      "created_at": "2023-12-28T08:47:48.082Z"
+    },
+    {
+      "id": "3ptdeqrlj8lqoyprvv",
+      "type": "income",
+      "name": "Aa",
+      "sum": 1000,
+      "account_id": "3ptdeqrf73lqjymuws",
+      "user_id": "3ptdeqreralqjycw96",
+      "created_at": "2023-12-28T08:48:04.458Z"
+    },
+    {
+      "id": "3ptdeqrln4lqoytor5",
+      "type": "expense",
+      "name": "A",
+      "sum": 100,
+      "account_id": "3ptdeqrf73lqjymuws",
+      "user_id": "3ptdeqreralqjycw96",
+      "created_at": "2023-12-28T08:51:07.024Z"
+    },
+    {
+      "id": "3ptdeqrlp9lqoyulp5",
+      "type": "expense",
+      "name": "A",
+      "sum": 100,
+      "account_id": "3ptdeqrf73lqjymuws",
+      "user_id": "3ptdeqreralqjycw96",
+      "created_at": "2023-12-28T08:51:49.720Z"
+    },
+    {
+      "id": "3ptdeqrlvmlqoyyc7l",
+      "type": "income",
+      "name": "A",
+      "sum": 10,
+      "account_id": "3ptdeqrf73lqjymuws",
+      "user_id": "3ptdeqreralqjycw96",
+      "created_at": "2023-12-28T08:54:44.048Z"
+    },
+    {
+      "id": "3ptdeqrmdrlqozf5pk",
+      "type": "income",
+      "name": "A",
+      "sum": 1,
+      "account_id": "3ptdeqrf73lqjymuws",
+      "user_id": "3ptdeqreralqjycw96",
+      "created_at": "2023-12-28T09:07:48.775Z"
+    },
+    {
+      "id": "3ptdeqrmhylqozkiqm",
+      "type": "income",
+      "name": "A",
+      "sum": 1,
+      "account_id": "3ptdeqrf73lqjymuws",
+      "user_id": "3ptdeqreralqjycw96",
+      "created_at": "2023-12-28T09:11:58.941Z"
+    },
+    {
+      "id": "3ptdeqrmpjlqozpqj3",
+      "type": "income",
+      "name": "A",
+      "sum": 1,
+      "account_id": "3ptdeqrf73lqjymuws",
+      "user_id": "3ptdeqreralqjycw96",
+      "created_at": "2023-12-28T09:16:02.318Z"
+    },
+    {
+      "id": "3ptdeqrn2rlqp0k5og",
+      "type": "income",
+      "name": "A",
+      "sum": 1,
+      "account_id": "3ptdeqrf73lqjymuws",
+      "user_id": "3ptdeqreralqjycw96",
+      "created_at": "2023-12-28T09:39:41.631Z"
+    },
+    {
+      "id": "3ptdeqrn3zlqp0pr4r",
+      "type": "income",
+      "name": "A",
+      "sum": 1,
+      "account_id": "3ptdeqrfjolqjywm1n",
+      "user_id": "3ptdeqreralqjycw96",
+      "created_at": "2023-12-28T09:44:02.714Z"
+    },
+    {
+      "id": "3ptdeqrncilqp0s2nt",
+      "type": "income",
+      "name": "Aa1",
+      "sum": 1,
+      "account_id": "3ptdeqrf73lqjymuws",
+      "user_id": "3ptdeqreralqjycw96",
+      "created_at": "2023-12-28T09:45:50.969Z"
+    },
+    {
+      "id": "3ptdeqrnidlqp11evh",
+      "type": "income",
+      "name": "username",
+      "sum": 1,
+      "account_id": "3ptdeqrfg2lqjytn60",
+      "user_id": "3ptdeqreralqjycw96",
+      "created_at": "2023-12-28T09:53:06.700Z"
+    },
+    {
+      "id": "3ptdeqrnkclqp11ze9",
+      "type": "income",
+      "name": "A",
+      "sum": 1,
+      "account_id": "3ptdeqrfdhlqjyri23",
+      "user_id": "3ptdeqreralqjycw96",
+      "created_at": "2023-12-28T09:53:33.296Z"
+    },
+    {
+      "id": "3ptdeqrnmwlqp13kop",
+      "type": "income",
+      "name": "A",
+      "sum": 1,
+      "account_id": "3ptdeqrf73lqjymuws",
+      "user_id": "3ptdeqreralqjycw96",
+      "created_at": "2023-12-28T09:54:47.544Z"
+    },
+    {
+      "id": "3ptdeqrnqdlqp170xr",
+      "type": "income",
+      "name": "Z",
+      "sum": 1,
+      "account_id": "3ptdeqrf73lqjymuws",
+      "user_id": "3ptdeqreralqjycw96",
+      "created_at": "2023-12-28T09:57:28.574Z"
+    },
+    {
+      "id": "3ptdeqrosvlqp9cq5b",
+      "type": "income",
+      "name": "A",
+      "sum": 1,
+      "account_id": "3ptdeqrfjolqjywm1n",
+      "user_id": "3ptdeqreralqjycw96",
+      "created_at": "2023-12-28T13:45:51.454Z"
+    },
+    {
+      "id": "3ptdeqrpzvlqp9d8ir",
+      "type": "income",
+      "name": "A",
+      "sum": 1,
+      "account_id": "3ptdeqrf73lqjymuws",
+      "user_id": "3ptdeqreralqjycw96",
+      "created_at": "2023-12-28T13:46:15.266Z"
+    },
+    {
+      "id": "3ptdeqrq0hlqp9fqhn",
+      "type": "income",
+      "name": "A",
+      "sum": 1,
+      "account_id": "3ptdeqrf73lqjymuws",
+      "user_id": "3ptdeqreralqjycw96",
+      "created_at": "2023-12-28T13:48:11.866Z"
+    },
+    {
+      "id": "3ptdeqrq3flqp9tvmq",
+      "type": "income",
+      "name": "A",
+      "sum": 1,
+      "account_id": "3ptdeqrf73lqjymuws",
+      "user_id": "3ptdeqreralqjycw96",
+      "created_at": "2023-12-28T13:59:11.714Z"
     }
   ]
 }

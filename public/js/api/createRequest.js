@@ -2,45 +2,41 @@
  * Основная функция для совершения запросов
  * на сервер.
  * */
-const createRequest = ( options = {url, data, method, callback} ) => {
+const createRequest = ( options = {} ) => {
   const xhr = new XMLHttpRequest();
-  xhr.responseType = 'json'; 
-  
-    if (options.method === 'GET'){
-      if (typeof options.method === 'string'){
-        options.url += '/' + options.data;
+  xhr.responseType = 'json';
 
-      } else {
-        options.url += '?';
+  if (options.method === 'GET'){
+    options.url = options.url + '?'
+    for (userData in options.data){
+      options.url = options.url + `${userData}=${options.data[userData]}&`;
+    };
+    options.url.slice(0 , options.url.length - 1)
+    options.formData = null;
 
-        for (userData in options.data){
-          options.url =+ `${userData}=${options.data[userData]}&`;
-        };
-      };
+  } else {
+    options.formData = new FormData;
+    for ( userData in options.data){
+     options.formData.append(userData, options.data[userData]);
+    };
+  };
 
-      xhr.open( 'GET', options.url, true);
-      xhr.send();
-
+  xhr.addEventListener('load', () => {
+    if (xhr.response.success){
+      options.callback(null, xhr.response);
     } else {
-      const formData = new FormData;
-
-      for ( userData in options.data){
-        formData.append(userData, options.data[userData]);
-      };
-
-      xhr.open( options.method, options.url, true );
-      xhr.send( formData );
+      options.callback(xhr.response.error, null);
     };
+  });
 
-    xhr.onload = () => {
-      if (xhr.response.success){
-        options.callback(null, xhr.response);
-      } else {
-        options.callback(new Error (xhr.response.error), null);
-      };
-    };
+  xhr.addEventListener( 'error', () => {
+    options.callback(xhr.statusText, null);
+  });
 
-    xhr.addEventListener( 'error', () => {
-      options.callback(new Error(xhr.statusText), null);
-    });
+  try{
+    xhr.open( options.method, options.url, true );
+    xhr.send(options.formData );
+  } catch (err) {
+    options.callback(err, null)
+  };
 };

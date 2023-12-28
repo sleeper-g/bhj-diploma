@@ -66,7 +66,9 @@ class TransactionsPage {
           if (response.success){
             this.clear();
             App.update();
-          };
+          } else {
+            console.log('removeAccount:', err)
+          }
         });
       };
     };
@@ -95,17 +97,22 @@ class TransactionsPage {
    * в TransactionsPage.renderTransactions()
    * */
   render(options){
+    console.log('render options: ', options)
     if (options) {
       this.lastOptions = options;
       Account.get(options.account_id, (err, response) => {
         if (response.success) {
           this.renderTitle(response.data.name);
-        };
+        } else {
+          console.log('TransactionsPage render Account.get: ', err)
+        }
       });
       Transaction.list(options, (err, response) => {
         if (response.success) {
           this.renderTransactions(response.data);
-        };
+        } else {
+          console.log('TransactionsPage render Transaction.list: ', err)
+        }
       });
     };
   };
@@ -124,6 +131,7 @@ class TransactionsPage {
    * Устанавливает заголовок в элемент .content-title
    * */
   renderTitle(name){
+    console.log('render title')
     document.querySelector('.content-title').innerText = name;
   }
 
@@ -145,6 +153,7 @@ class TransactionsPage {
    * item - объект с информацией о транзакции
    * */
   getTransactionHTML(item){
+    console.log('getTransactionHTML')
     return `<div class="transaction transaction_${item.type} row">
     <div class="col-md-7 transaction__details">
       <div class="transaction__icon">
@@ -174,12 +183,15 @@ class TransactionsPage {
    * используя getTransactionHTML
    * */
   renderTransactions(data){
-    const content = document.querySelector(".content");
-    let transHTML = "";
+    console.log('data: ', data)
+    if (data){
+      const content = document.querySelector(".content");
+      let transHTML = "";
 
-    data.forEach(item => {
-      transHTML += this.getTransactionHTML(item);
-    });
-    content.innerHTML = transHTML;
+      data.forEach(item => {
+        transHTML += this.getTransactionHTML(item);
+      });
+      content.innerHTML = transHTML;
+    }
   };
 };

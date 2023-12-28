@@ -35,13 +35,12 @@ class AccountsWidget {
       App.getModal('createAccount').open();
     });
 
-    [...document.querySelectorAll('.account')]
-      .forEach(accountEl => {
-        accountEl.addEventListener('click', (el) => {
-          el.preventDefault();
-          this.onSelectAccount(accountEl);
-        });
+    [...document.querySelectorAll('.account')].forEach(accountEl => {
+      accountEl.addEventListener('click', (el) => {
+        el.preventDefault();
+        this.onSelectAccount(accountEl);
       });
+    });
   };
 
   /**
@@ -58,9 +57,11 @@ class AccountsWidget {
     const currentUser = User.current();
     if (currentUser){
       Account.list(currentUser, (err, response) => {
-        if (response.success){
+        if (response && response.success){
           this.clear();
-          this.renderItem(response.currentUser);
+          this.renderItem(response.data);
+        } else {
+          console.log('AccountsWidget.update: ', err)
         };
       });
     };
@@ -114,8 +115,15 @@ class AccountsWidget {
    * и добавляет его внутрь элемента виджета
    * */
   renderItem(data){
-    data.forEach( el => {
-      this.element.append(this.getAccountHTML(el));
-    })
+    console.log('this.element: ', this.element)
+    console.log(data)
+    if (data){
+      this.element.innerHTML = data.reduce( (result, poket) => {
+        return result + this.getAccountHTML(poket);
+      },
+      this.element.innerHTML);
+    } else {
+      console.log('renderItem, data is empty');
+    };
   }
 }
