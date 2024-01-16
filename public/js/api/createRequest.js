@@ -7,16 +7,17 @@ const createRequest = ( options = {} ) => {
   xhr.responseType = 'json';
 
   if (options.method === 'GET'){
-    options.url = options.url + '?'
-    for (userData in options.data){
-      options.url = options.url + `${userData}=${options.data[userData]}&`;
+    let url = options.url + '?'
+    for (let userData in options.data){
+      url = url + `${userData}=${options.data[userData]}&`;
     };
-    options.url.slice(0 , options.url.length - 1)
+    url = url.slice(0 , -1)
+    options.url = url
     options.formData = null;
 
   } else {
     options.formData = new FormData;
-    for ( userData in options.data){
+    for (let userData in options.data){
      options.formData.append(userData, options.data[userData]);
     };
   };

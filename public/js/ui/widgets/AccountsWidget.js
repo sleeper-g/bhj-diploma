@@ -30,17 +30,21 @@ class AccountsWidget {
    * вызывает AccountsWidget.onSelectAccount()
    * */
   registerEvents() {
-    document.querySelector('.create-account').addEventListener('click', (el) => {
+    console.log('registerEvents', this.element)
+    console.log('registerEvents: ', document.querySelector('.create-account'))
+    this.element.addEventListener('click', (el) => {
+      console.log(el)
       el.preventDefault();
-      App.getModal('createAccount').open();
-    });
-
-    [...document.querySelectorAll('.account')].forEach(accountEl => {
-      accountEl.addEventListener('click', (el) => {
-        el.preventDefault();
-        this.onSelectAccount(accountEl);
-      });
-    });
+      if(el.target.classList.contains('create-account')){
+        App.getModal('createAccount').open();
+      }
+      if(el.target.parentElement.classList.contains('account')){
+        this.onSelectAccount(el.target.parentElement);
+      }
+      if(el.target.parentElement.parentElement.classList.contains('account')){
+        this.onSelectAccount(el.target.parentElement.parentElement);
+      }
+    })
   };
 
   /**
@@ -73,7 +77,9 @@ class AccountsWidget {
    * в боковой колонке
    * */
   clear() {
-    [...(this.element.querySelectorAll('.account'))].forEach(el => {
+    (this.element.querySelectorAll('.account')).forEach(el => {
+      console.log('AccountWidget.clear')
+      console.log('clear', el)
       el.remove();
     })
   }

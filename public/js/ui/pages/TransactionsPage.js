@@ -11,13 +11,12 @@ class TransactionsPage {
    * через registerEvents()
    * */
   constructor( element ) {
-    if (element){
-      this.element = element;
-      this.registerEvents();
-      this.lastOptions = null;
-    } else {
+    if (! element){
       throw new Error('передан пустой элемент в TransactionsPage');
     }
+    this.element = element;
+    this.registerEvents();
+    this.lastOptions = null;
   };
 
   /**
@@ -26,7 +25,9 @@ class TransactionsPage {
   update() {
     if (this.lastOptions){
       this.render(this.lastOptions);
-    };
+    } else {
+      console.warn('TransactionsPage.update no lastOptions')
+    }
   };
 
   /**
@@ -61,9 +62,9 @@ class TransactionsPage {
     if (this.lastOptions){
       if ( window.confirm('Вы действительно хотите удалить счёт?')){
         this.clear();
-        const id = document.querySelector('li.active').dataset.id;
-        Account.remove( {id:id}, (err, response) => {
-          if (response.success){
+        const id = this.lastOptions.account_id
+        Account.remove( {id}, (err, response) => {
+          if (response && response.success){
             this.clear();
             App.update();
           } else {
@@ -83,12 +84,13 @@ class TransactionsPage {
   removeTransaction( id ) {
     if (window.confirm('Вы действительно хотите удалить эту транзакцию?')){
       Transaction.remove( {id: id}, (err, response) => {
-        if (response.success) {
+        if (response && response.success) {
           App.update()
         };
       });
-    };
+    }
   };
+
 
   /**
    * С помощью Account.get() получает название счёта и отображает
@@ -101,14 +103,14 @@ class TransactionsPage {
     if (options) {
       this.lastOptions = options;
       Account.get(options.account_id, (err, response) => {
-        if (response.success) {
+        if (response && response.success) {
           this.renderTitle(response.data.name);
         } else {
           console.log('TransactionsPage render Account.get: ', err)
         }
       });
       Transaction.list(options, (err, response) => {
-        if (response.success) {
+        if (response && response.success) {
           this.renderTransactions(response.data);
         } else {
           console.log('TransactionsPage render Transaction.list: ', err)
@@ -183,15 +185,15 @@ class TransactionsPage {
    * используя getTransactionHTML
    * */
   renderTransactions(data){
-    console.log('data: ', data)
+    const content = this.element.querySelector(".content");
+    console.log('renderTransactions', content, this.element)
     if (data){
-      const content = document.querySelector(".content");
-      let transHTML = "";
-
-      data.forEach(item => {
-        transHTML += this.getTransactionHTML(item);
-      });
-      content.innerHTML = transHTML;
-    }
+      content.innerHTML = data.reduce( (result, item) => {
+        return result + this.getTransactionHTML(item);
+      },
+      '');
+    } else {
+      console.log('renderTransactions, data is empty')
+    };
   };
 };
